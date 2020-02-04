@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 4 elements to &apos;POO_Boletin1/src/Ejercicio10&apos;&#x0A;- Original project: &apos;DAD1_Boletin1&apos;&#x0A;- Destination element: &apos;POO_Boletin1/src/Ejercicio10&apos;&#x0A;- Original elements:&#x0A;     EjercicioPoligonos.Principal.java&#x0A;     EjercicioPoligonos.Rectangulo.java&#x0A;     EjercicioPoligonos.Poligono.java&#x0A;     EjercicioPoligonos.Triangulo.java" description="Copy compilation units" destination="=POO_Boletin1/src&lt;Ejercicio10" element1="/src&lt;EjercicioPoligonos{Principal.java" element2="/src&lt;EjercicioPoligonos{Rectangulo.java" element3="/src&lt;EjercicioPoligonos{Poligono.java" element4="/src&lt;EjercicioPoligonos{Triangulo.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1571122379386" units="4" version="1.0"/>
+</session>

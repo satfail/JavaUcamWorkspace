@@ -1,0 +1,36 @@
+package edu.ucam.application;
+
+import edu.ucam.pojos.Medico;
+
+public class Cliente {
+	
+	static final int puertoMensajes = 2019;
+	static final int puertoDatos = 2020;
+	static final String ip = "localhost";
+	static int contadorMensaje = 0;
+	
+	SocketStreamMensajeria socketMensajeCliente;
+	
+	
+	public void lanzarCliente() {
+		
+		socketMensajeCliente = new SocketStreamMensajeria(ip, puertoMensajes);
+		String recibeMensaje = null;
+		
+		try {
+			socketMensajeCliente.enviaMensaje("1 USER admin otra cosa");
+			recibeMensaje = socketMensajeCliente.recibeMensaje();
+			System.out.println(recibeMensaje);
+			
+			socketMensajeCliente.enviaMensaje("1 USER admin");
+			recibeMensaje = socketMensajeCliente.recibeMensaje();
+			System.out.println(recibeMensaje);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

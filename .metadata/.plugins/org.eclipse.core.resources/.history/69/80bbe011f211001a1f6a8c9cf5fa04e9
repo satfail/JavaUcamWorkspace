@@ -1,0 +1,10 @@
+package edu.ucam.root;
+
+import edu.ucam.application.Cliente;
+
+public class TestCliente {
+
+	public static void main(String[] args) {
+		(new Cliente()).lanzarCliente();
+	}
+}

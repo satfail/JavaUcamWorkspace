@@ -1,0 +1,44 @@
+package Chat;
+
+import java.io.*;
+import java.net.*;
+import java.util.ArrayList;
+
+public class ServerMultiClient {
+
+	private ArrayList<ClienteThread> clients = new ArrayList<ClienteThread>();
+	
+	public void launch() {
+		try {
+			
+			ServerSocket ss = new ServerSocket(2019);
+			System.out.println("Escuchando en 2019");
+			
+			while(true) {
+				
+				Socket socket = ss.accept();
+				System.out.println("Conexion recibida desde " + socket.getInetAddress() + " " + socket.getPort());
+				ClienteThread ct = new ClienteThread(socket, this); //Este servidor, el metodo recibe un servidor como parametro
+																	// que es este
+				this.clients.add(ct);
+				ct.start();
+				
+			}
+		}
+		
+		catch(IOException ex) {
+			
+			ex.printStackTrace();
+		}
+	}
+
+	public void sendMessageToAll(String message) {
+		
+		for(ClienteThread clienteThread : clients) {
+			
+			clienteThread.sendMessageToClient(message);
+		}
+		
+	}
+	
+}

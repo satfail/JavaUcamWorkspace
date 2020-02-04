@@ -1,0 +1,33 @@
+package edu.ucam.application;
+
+import edu.ucam.pojos.Medico;
+
+public class Cliente {
+	
+	static final int puertoMensajes = 2019;
+	static final int puertoDatos = 2018;
+	static final String ip = "localhost";
+	
+	SocketStreamMensajeria socketMensajeCliente;
+	
+	
+	public void lanzarCliente() {
+		
+		socketMensajeCliente = new SocketStreamMensajeria(ip, puertoMensajes);
+		String recibeMensaje = null;
+		SocketStreamDatos socketDatosCliente = new SocketStreamDatos(ip, 3436);
+		try {
+			socketMensajeCliente.enviaMensaje("Hola soy el Cliente");
+			recibeMensaje = socketMensajeCliente.recibeMensaje();
+			System.out.println(recibeMensaje);
+			System.out.println("Enviando un medico de prueba");
+			Medico m1 = new Medico("M1", "Carlos", "Perez", "General");
+			socketDatosCliente.enviarObjeto(m1);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

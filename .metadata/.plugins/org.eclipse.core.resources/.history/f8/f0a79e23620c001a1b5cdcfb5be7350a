@@ -1,0 +1,13 @@
+package edu.ucam.application;
+
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+
+public class HiloMensajes  extends Thread{
+	
+	private PrintWriter pw;
+	private BufferedReader br;
+	
+	
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;MiSocketStream.java&apos; to &apos;Networking/src/EchoTCP&apos;&#x0A;- Original project: &apos;Sockets&apos;&#x0A;- Destination element: &apos;Networking/src/EchoTCP&apos;&#x0A;- Original element: &apos;EmisorReceptorconClase.MiSocketStream.java&apos;" description="Copy compilation unit" destination="=Networking/src&lt;EchoTCP" element1="/src&lt;EmisorReceptorconClase{MiSocketStream.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1569224528031" units="1" version="1.0"/>
+</session>

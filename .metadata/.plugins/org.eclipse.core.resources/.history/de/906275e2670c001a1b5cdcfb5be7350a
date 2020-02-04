@@ -1,0 +1,12 @@
+package edu.ucam.application;
+
+public class Cliente {
+	
+	static int commPort = 2018;
+	static int dataPort = 2019;
+	private static String IP = "localhost";
+	
+	SocketStreamMensajeria socketMensajeCliente;
+	
+
+}

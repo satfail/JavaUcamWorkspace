@@ -1,0 +1,25 @@
+package edu.ucam.application;
+
+public class Servidor {
+	
+	static final int puertoMensajes = 2019;
+	static final int puertoDatos = 2020;
+	static final String ip = "localhost";
+	
+	
+	
+	
+	
+	
+	public static int getPuertomensajes() {
+		return puertoMensajes;
+	}
+	public static int getPuertodatos() {
+		return puertoDatos;
+	}
+	public static String getIp() {
+		return ip;
+	}
+	
+
+}

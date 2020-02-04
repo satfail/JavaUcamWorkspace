@@ -1,0 +1,17 @@
+package edu.ucam.application;
+
+public class Cliente {
+	
+	static final int puertoMensajes = 2019;
+	static final int puertoDatos = 2020;
+	static final String ip = "localhost";
+	
+	SocketStreamMensajeria socketMensajeCliente;
+	
+	
+	public void lanzarCliente() {
+		
+		socketMensajeCliente = new SocketStreamMensajeria(ip, puertoMensajes);
+	}
+
+}

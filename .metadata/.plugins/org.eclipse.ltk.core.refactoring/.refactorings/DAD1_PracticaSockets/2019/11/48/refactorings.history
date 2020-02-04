@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;edu.ucam.application.HiloMensajeria.crudServer&apos; in &apos;edu.ucam.application.HiloMensajeria&apos;&#x0A;- Original project: &apos;DAD1_PracticaSockets&apos;&#x0A;- Original element: &apos;edu.ucam.application.HiloMensajeria.crudServer&apos;&#x0A;- Getter method name: &apos;getCrudServer&apos;&#x0A;- Field visibility: &apos;public&apos;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;crudServer&apos;" flags="589830" getter="getCrudServer" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;edu.ucam.application{HiloMensajeria.java[HiloMensajeria^crudServer" insertion="1" stamp="1574876873519" version="1.0" visibility="1"/>
+</session>

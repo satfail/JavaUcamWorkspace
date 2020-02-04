@@ -1,0 +1,7 @@
+package edu.ucam.application;
+
+public class HiloMensajes  extends Thread{
+	
+	
+
+}

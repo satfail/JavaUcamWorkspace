@@ -1,0 +1,79 @@
+package edu.ucam.application;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+
+import edu.ucam.pojos.Medico;
+
+public class HiloMensajeria extends Thread {
+	
+	//private PrintWriter pw;
+	//private BufferedReader br;
+	private SocketStreamMensajeria socketMensajeria;
+	static int contadorMensaje = 0;
+	
+	public HiloMensajeria(SocketStreamMensajeria socketMensajeria) {
+
+		this.socketMensajeria = socketMensajeria;
+	}
+	
+	
+	public void run() {
+		
+		try {
+			String lineaEnvia ="";
+			String lineaRecibe = "";
+			String[] partes;
+			ServerSocket socketServidorDatos;
+			boolean flag = false;
+			
+			//Comprobar Usuario (001 USER admin)
+			do {
+				lineaRecibe = socketMensajeria.recibeMensaje();
+				System.out.println("Mensaje recibido : " + lineaRecibe);
+				partes = lineaRecibe.split(" ");
+				if(partes.length ==3) {
+					if(partes[1].equals("USER")){
+						lineaEnvia = "OK " + partes[0] + " envie contraseña";
+						flag = true;
+					}else {
+						lineaEnvia = "ERROR " + partes[0] + " Mensaje incorrecto. ID USER usuario";
+						System.err.println("Mensaje Incorrecto");
+					}
+				}else {
+					lineaEnvia = "ERROR " + partes[0] + " Mensaje incorrecto. ID USER usuario";
+					System.err.println("Longitud del mensaje Incorrecta");
+				}
+				socketMensajeria.enviaMensaje(lineaEnvia);
+			}while(!flag);
+			
+			flag = false;
+			//Comprobar cotrasenyas
+			
+			
+			do {
+				lineaRecibe = socketMensajeria.recibeMensaje();
+				System.out.println("Mensaje recibido : " + lineaRecibe);
+				
+				
+				
+			}while(!flag);
+
+
+
+
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+
+}

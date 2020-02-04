@@ -1,0 +1,120 @@
+package edu.ucam.root;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.HashMap;
+import java.util.Scanner;
+
+import edu.ucam.aplicacion.Automovil;
+import edu.ucam.aplicacion.Persona;
+import edu.ucam.aplicacion.Trabajo;
+import edu.ucam.crud.crudPersona;
+import edu.ucam.crud.crudTrabajo;
+import edu.ucam.gui.windows.VentanaInicio;
+
+public class Principal {
+	
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+		crudPersona datosPersona = new crudPersona();
+		crudTrabajo datosTrabajo = new crudTrabajo();
+		HashMap<String, Automovil> datosAutomovil = new HashMap<String, Automovil>();
+		datosAutomovil = leerDatosAuto();
+		datosPersona.leerDatos();
+		
+				/*** Pruebas ***/
+		///datosPersona.addCliente();
+		//datosPersona.generarInformeClientes();
+		//datosTrabajo.addTrabajo(datosPersona.getPersonas());
+		datosTrabajo.addTrabajo(datosPersona.getPersonas());
+		datosTrabajo.addTrabajo(datosPersona.getPersonas());
+		//datosTrabajo.visitasModeloThisYear();
+		datosTrabajo.leerTrabajos();
+		datosTrabajo.generarInformeTrabajos();
+		//datosTrabajo.buscarTrabajo();
+		//datosTrabajo.finalizarTrabajo();
+		//System.out.println(datosTrabajo.getTrabajos().get("T1").getPrecio());
+		//System.out.println(datosTrabajo.getTrabajos().get("T1"));
+		//datosTrabajo.eliminarTrabajo();
+		//datosPersona.eliminarCliente();
+		//menu();
+
+	}
+	
+	public static HashMap<String, Automovil> leerDatosAuto(){
+		HashMap<String, Automovil> leido = new HashMap<String, Automovil>();
+		String fileAuto = "data/autos.data";
+		try {
+			
+	        FileInputStream file2 = new FileInputStream 
+	                (fileAuto); 
+	        ObjectInputStream in = new ObjectInputStream 
+	                (file2); 
+	        leido = (HashMap<String, Automovil>)in.readObject();
+	        file2.close();
+	        in.close();
+			
+		} catch (IOException | ClassNotFoundException e) {
+			if(e instanceof IOException)
+				System.err.println("No se ha podido encontrar el archivo");
+			else {
+				System.err.println("No se ha podido leer el archivo");
+			}
+		}
+		
+		return leido;
+	}
+	
+	public static void menu() {
+		Scanner entrada = new Scanner(System.in);
+		int flag = 0;
+		
+		do {
+			System.out.println("Bienvenido al Taller");
+			System.out.println("1. Gestion Cliente");
+			System.out.println(" 2. Gestion Trabajos");
+			System.out.println("3. Generar informes");
+			System.out.println("4. Salir");
+			flag = entrada.nextInt();
+			
+			switch (flag) {
+			case 1:
+				
+				break;
+				
+			case 2:
+				
+				break;
+				
+			case 3:
+				
+				break;
+
+			default:
+				break;
+			}
+			
+		}while(flag !=4);
+		
+
+		
+	}
+		
+	public void gestionCliente() {
+		Scanner entrada = new Scanner(System.in);
+		int flag = 0;
+		
+		do {
+			
+			
+			
+		}while(flag != 4);
+		
+	}
+	
+
+
+}
+

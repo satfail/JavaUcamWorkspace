@@ -1,0 +1,56 @@
+package edu.ucam.application;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+
+import edu.ucam.pojos.Medico;
+
+public class HiloMensajeria extends Thread {
+	
+	//private PrintWriter pw;
+	//private BufferedReader br;
+	private SocketStreamMensajeria socketMensajeria;
+	
+	public HiloMensajeria(SocketStreamMensajeria socketMensajeria) {
+
+		this.socketMensajeria = socketMensajeria;
+	}
+	
+	
+	public void run() {
+		
+		try {
+			String lineaEnvia ="Hola soy el servidor";
+			String lineaRecibe = "";
+			ServerSocket socketServidorDatos = new ServerSocket(2020);
+			//br = new BufferedReader(new InputStreamReader(socketMensajeria.getInputStream()));
+			//pw = new PrintWriter(new OutputStreamWriter(socketMensajeria.getOutputStream()));
+			//pw.write(linea);
+			
+			
+			/**Gestion de Mensajeria con el Cliente BIG FUCKING SWITCH */
+			// Como separar todos los datos de la cadena?
+			
+			///Respueste del servidor
+			socketMensajeria.enviaMensaje(lineaEnvia);
+			lineaRecibe = socketMensajeria.recibeMensaje();
+			System.out.println(lineaRecibe);
+
+			SocketStreamDatos streamDatos = new SocketStreamDatos(socketServidorDatos.accept());
+			Medico m1 = (Medico)streamDatos.recibirObjeto();
+			System.out.println(m1);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+
+}

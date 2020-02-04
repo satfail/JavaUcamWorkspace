@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0" value="110"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1" value="332"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2" value="75"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn" value="1"/>
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode&gt;=BaseDatos/\/BaseDatos\/C:\/Program Files\/Java\/hsqldb\/hsqldb.jar&amp;lt;org.hsqldb.util(DatabaseManager.class[DatabaseManager&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=BdTest/Libreria\/hsqldb.jar&amp;lt;org.hsqldb.util(DatabaseManager.class[DatabaseManager&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=Networking/src&amp;lt;TestClienteServidor{Cliente.java[Cliente&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=Networking/src&amp;lt;TestClienteServidor{DemoServer.java[DemoServer&lt;/infoNode&gt;&#x0A;&lt;infoNode&gt;=Networking/src&amp;lt;Multidifusion{Ejemplo1Emisor.java[Ejemplo1Emisor&lt;/infoNode&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="446"/>
+			<item key="DIALOG_WIDTH" value="390"/>
+			<item key="DIALOG_X_ORIGIN" value="660"/>
+			<item key="DIALOG_Y_ORIGIN" value="210"/>
+			<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.25|0|COCOA|1|.AppleSystemUIFont"/>
+		</section>
+	</section>
+	<section name="conditionHistory">
+	</section>
+	<section name="AddExceptionDialog">
+		<item key="caughtChecked" value="true"/>
+		<item key="uncaughtChecked" value="true"/>
+	</section>
+</section>

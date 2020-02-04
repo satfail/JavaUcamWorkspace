@@ -1,0 +1,126 @@
+package edu.ucam.crud;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Map.Entry;
+
+import edu.ucam.aplicacion.Automovil;
+import edu.ucam.aplicacion.Cliente;
+import edu.ucam.aplicacion.Comercial;
+import edu.ucam.aplicacion.Jefe;
+import edu.ucam.aplicacion.Mecanico;
+import edu.ucam.aplicacion.Moto;
+import edu.ucam.aplicacion.Persona;
+import edu.ucam.aplicacion.Trabajo;
+import edu.ucam.aplicacion.Turismo;
+
+public class crudPersona {
+	
+
+	private static HashMap<String, Persona> personas = new HashMap<String, Persona>();
+	private static Scanner entrada = new Scanner(System.in);
+	private int contadorPersona = 7;
+	private String filePersona= "data/persona.data";
+
+	public static HashMap<String, Persona> getPersonas() {
+		return personas;
+	}
+	
+	public void addCliente() {
+		
+		String nombre, apellido,dni;
+		System.out.print("Introduzca nombre del cliente : ");
+		nombre = entrada.nextLine();
+		System.out.print("Introduzca apellido del cliente : ");
+		apellido = entrada.nextLine();
+		System.out.print("Introduzca dni del cliente : ");
+		dni = entrada.nextLine();
+
+		System.out.println("Que vehiculo posee Turismo(T) o Moto(M)");
+		Automovil t1 = null;
+		if (entrada.nextLine().equals("T")) {
+			t1 = new Turismo(); 
+			System.out.println("Introduzca marca"); t1.setMarca(entrada.nextLine());
+			System.out.println("Introduzca modelo"); t1.setModelo(entrada.nextLine());
+			System.out.println("Introduzca Matricula"); t1.setMatricula(entrada.nextLine());
+			System.out.println("Introduzca caballos"); t1.setCaballos(entrada.nextInt());
+			System.out.println("Introduzca capacidad"); ((Turismo)t1).setCapacidad(entrada.nextFloat());
+		}
+		else {
+			t1 = new Moto(); 
+			System.out.println("Introduzca marca"); t1.setMarca(entrada.nextLine());
+			System.out.println("Introduzca modelo"); t1.setModelo(entrada.nextLine());
+			System.out.println("Introduzca Matricula"); t1.setMatricula(entrada.nextLine());
+			System.out.println("Introduzca caballos"); t1.setCaballos(entrada.nextInt());
+			System.out.println("Introduzca cilindrada"); ((Moto)t1).setCilindrada(entrada.nextInt());
+		}
+		
+		Cliente c1 = new Cliente(nombre, apellido, dni, t1, "C"+contadorPersona,  new Date(2019, 1, 1));
+		personas.put("C"+contadorPersona, c1);
+		contadorPersona++;
+		
+	}
+
+	public void eliminarCliente() {
+		entrada.nextLine();
+		System.out.print("Introduzca el ID que quiere borrar : ");
+		String idBorrar = entrada.nextLine();
+		Persona pBorrada = personas.remove(idBorrar);
+		if (pBorrada == null) {
+			System.out.println("No se pudo borrar el cliente seleccionado");
+		}
+		else {
+			System.out.print("Se borro a : " + pBorrada);
+		}
+
+		
+	}
+	
+	public void generarInformeClientes() {
+		
+        for(Entry<String, Persona> p: personas.entrySet()) {
+        	
+        	if(p.getValue() instanceof Jefe ) {
+        		System.out.println((Jefe)p.getValue());
+        		}
+        	else if(p.getValue() instanceof Mecanico ) {
+
+        		System.out.println((Mecanico)p.getValue());
+        		}
+        	else if(p.getValue() instanceof Comercial ) {
+
+        		System.out.println((Comercial)p.getValue());
+        		}
+        	else if(p.getValue() instanceof Cliente ) {
+
+        		System.out.println((Cliente)p.getValue());
+        		}
+        }
+			
+		}
+	
+	public void leerDatos () {
+
+		String filePersona= "data/persona.data";
+
+		try {
+			
+		  FileInputStream file = new FileInputStream 
+	                (filePersona); 
+	        ObjectInputStream in = new ObjectInputStream 
+	                (file); 
+	        personas = (HashMap<String, Persona>)in.readObject();
+	        
+	        file.close();
+	        in.close();
+
+		}catch (IOException  | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+	}
+}

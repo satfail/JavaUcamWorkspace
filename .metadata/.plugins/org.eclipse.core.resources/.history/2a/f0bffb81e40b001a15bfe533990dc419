@@ -1,0 +1,126 @@
+package edu.ucam.crud;
+
+import java.sql.Date;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Map.Entry;
+
+import edu.ucam.aplicacion.Persona;
+import edu.ucam.aplicacion.Trabajo;
+import edu.ucam.aplicacion.Turismo;
+import edu.ucam.aplicacion.Automovil;
+import edu.ucam.aplicacion.Cliente;
+import edu.ucam.aplicacion.Mecanico;
+import edu.ucam.aplicacion.Moto;;
+
+public class crudTrabajo {
+	
+	private static HashMap<String, Trabajo> trabajos = new HashMap<String, Trabajo>();
+	private static Scanner entrada = new Scanner(System.in);
+	private static String id = "";
+	private int contadorTrabajo = 1;
+
+	
+	public static HashMap<String, Trabajo> getTrabajos() {
+		return trabajos;
+	}
+	
+	public void addTrabajo(HashMap<String, Persona> personas) {
+		Cliente c1 = null;
+		Mecanico mec1 = null;
+		Turismo t1 = null;
+		Moto m1 =null;
+		Trabajo trab1 = null;
+		System.out.println("Introduce la ID del cliente : ");
+		id = entrada.nextLine();
+		if(!personas.containsKey(id)) {
+			System.out.println("Cliente no encontrado");
+		}else {
+				c1 = (Cliente)personas.get(id);
+				System.out.println("El cliente es :" + c1.getNombre());
+			
+			if (c1.getAuto() instanceof Moto) {
+				m1 = (Moto) c1.getAuto();
+				System.out.println("Vehiculo: Moto " + m1.getCilindrada());
+				m1.setTipoAveria("reparacion");
+			}
+			else {
+				t1 = (Turismo)c1.getAuto();
+				System.out.println("Vehiculo: Turismo " + t1.getCapacidad());
+				t1.setTipoAveria("reparacion");
+			}
+			System.out.print("Desea Asignar un Mecanico ahora?  s/n : ");
+			if(entrada.nextLine().equals("s")) {
+				System.out.println("Introduce el ID del Mecanico que va a trabajar : ");
+				id = entrada.nextLine();
+				if(!(personas.containsKey(id))) {
+					System.out.println("Mecanico no encontrado");
+				}else {
+					mec1 = (Mecanico)personas.get(id);
+					mec1.setEstadoTrabajando(true);
+					System.out.println("El mecanico elegido es " +  mec1.getNombre());
+					
+				}
+				Date currentDate = new Date(System.currentTimeMillis());
+				 trab1 = new Trabajo(0, new Date(System.currentTimeMillis()), null, t1, c1, mec1);
+			}else {
+				 trab1 = new Trabajo(0, new Date(System.currentTimeMillis()), null, t1, c1, null);
+			}
+			trabajos.put("T"+contadorTrabajo, trab1);
+			contadorTrabajo++;
+			
+		}
+
+	}
+	
+	public void eliminarTrabajo() {
+		entrada.nextLine();
+		System.out.print("Introduce el id que quieres eliminar : ");
+		id = entrada.nextLine();
+		Trabajo trabajoBorrado = trabajos.remove(id);
+		if(trabajoBorrado == null)
+			System.err.println("El trabajo no se ha borrado correctamente");
+		else {
+			System.out.println("Se ha borrado el trabajo : " + trabajoBorrado);
+		}
+	}
+	
+	public void generarInformeTrabajos() {
+		for(Entry<String, Trabajo> t: trabajos.entrySet()) {
+			System.out.println(t);
+		}
+	}
+	
+	public void buscarTrabajo() {
+		Trabajo trabajoBuscado = null;
+		entrada.nextLine();
+		System.out.print("Introduzca la id del trabajo a buscar : ");
+		id = entrada.nextLine();
+		trabajoBuscado = trabajos.get(id);
+		if(trabajoBuscado == null)
+			System.err.println("El trabajo no se encuentra en el sistema");
+		else {
+			System.out.println("Trabajo encontado : " + trabajoBuscado);
+		}
+		//return trabajoBuscado; NO SE SI NECESITO DEVOLVERLO DE MOMENTO(cambiar func a Trabajo)
+	}
+	
+	public void finalizarTrabajo() {
+		
+		entrada.nextLine();
+		System.out.print("Introduzca el Trabajo que ha finalizado : ");
+		id = entrada.nextLine();
+		
+		if(trabajos.get(id).getMecanico() == null) {
+			System.err.println("Ese trabajo no tiene asignado ningun mecanico");
+		}else {
+
+			trabajos.get(id).setFin(new Date(System.currentTimeMillis())); 
+			trabajos.get(id).setPrecio();
+			((Mecanico)trabajos.get(id).getMecanico()).setEstadoTrabajando(false);
+		}
+	
+	}
+
+
+}

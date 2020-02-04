@@ -1,0 +1,62 @@
+package Chat;
+
+import java.io.*;
+import java.net.*;
+
+
+public class ClienteThread extends Thread{
+	
+	private Socket socket;
+	private ServerMultiClient servermulticlient;
+	private BufferedReader br = null;
+	private PrintWriter pw = null;
+	public ClienteThread (Socket socket, ServerMultiClient servermulticlient) {
+		this.servermulticlient = servermulticlient;
+		
+		try {
+			
+			this.br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			this.pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+			
+			
+			while (true) {
+				this.servermulticlient.sendMessageToAll(br.readLine());
+				
+			}
+		}
+		
+		catch(Exception ex) {
+			
+			ex.printStackTrace();
+		
+		}
+	}
+	
+	public void run() {
+		
+		try {
+			
+			
+			while (true) {
+				this.servermulticlient.sendMessageToAll(br.readLine());
+				//Leemos del socket y decimos al servidor que envie un mensaje a todos los clientes
+			}
+		}
+		
+		catch(Exception ex) {
+			
+			ex.printStackTrace();
+		
+	}
+
+	}
+
+	public void sendMessageToClient(String message) {
+		// TODO Auto-generated method stub
+		
+		this.pw.println(message);
+		this.pw.flush();
+		
+	}
+}	
+

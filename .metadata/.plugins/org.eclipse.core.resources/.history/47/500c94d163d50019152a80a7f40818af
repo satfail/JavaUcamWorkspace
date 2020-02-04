@@ -1,0 +1,45 @@
+package Chat;
+
+import java.io.*;
+import java.net.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Cliente extends Thread {
+	
+	private BufferedReader br = null;
+	private PrintWriter pw = null;
+	
+	public void launch() {
+		
+		try {
+		Socket socket = new Socket("127.0.0.1" ,2019);
+		System.out.println("Conexion enviada a " + socket.getInetAddress());
+		
+
+
+		this.br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		this.pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+		
+		Scanner entrada = new Scanner(System.in);
+		
+		while(true) {
+			
+			pw.println(entrada.nextLine());
+			pw.flush();
+		}
+		
+		}
+		
+		catch(IOException ex) {
+			
+			ex.printStackTrace();
+		}
+		
+	}
+	public void run() {
+		
+		System.out.println("Devuelto : " + br.readLine());
+	}
+
+}

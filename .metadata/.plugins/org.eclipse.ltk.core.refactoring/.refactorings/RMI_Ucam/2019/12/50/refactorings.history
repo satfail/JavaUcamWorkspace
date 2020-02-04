@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;RMI_Ucam&apos;&#x0A;- Original project: &apos;RMI_Ucam&apos;&#x0A;- Original element: &apos;RMI_Ucam/src/Boletin_RMI&apos;" description="Delete element" element1="/src&lt;Boletin_RMI" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1576246937417" subPackages="false" version="1.0"/>
+</session>

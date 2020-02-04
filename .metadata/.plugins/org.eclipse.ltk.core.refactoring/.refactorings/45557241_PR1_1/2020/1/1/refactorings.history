@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 2 elements from project &apos;45557241_PR1_1&apos;&#x0A;- Original project: &apos;45557241_PR1_1&apos;&#x0A;- Original elements:&#x0A;     edu.ucam.crud.CrudPersona.java&#x0A;     edu.ucam.crud.CrudTrabajo.java" description="Delete elements" element1="/src&lt;edu.ucam.crud{CrudTrabajo.java" element2="/src&lt;edu.ucam.crud{CrudPersona.java" elements="2" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1578071398885" subPackages="false" version="1.0"/>
+</session>

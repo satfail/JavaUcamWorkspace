@@ -1,0 +1,22 @@
+package edu.ucam.root;
+
+import java.util.Date;
+import java.util.Map.Entry;
+
+import edu.ucam.application.CrudServer;
+import edu.ucam.application.Servidor;
+import edu.ucam.pojos.Medico;
+import edu.ucam.pojos.Paciente;
+import edu.ucam.pojos.Tratamiento;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		//CrudServer crudServer = new CrudServer();
+		//CrudServer.leerDatos();
+		
+		(new Servidor()).lanzarServidor();		
+	
+	}
+	
+}

@@ -1,0 +1,47 @@
+package edu.ucam.application;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Servidor {
+	
+	static final int puertoMensajes = 2019;
+	static final int puertoDatos = 2020;
+	static final String ip = "localhost";
+	
+	
+	
+	public void lanzarServidor() {
+		
+		try {
+			ServerSocket socketServidor = new ServerSocket(2019);
+			System.out.println("Servidor Preparado");
+			while(true) {
+				SocketStreamMensajeria socketServidorMensajeria =new SocketStreamMensajeria(socketServidor.accept());
+				System.out.println("Se ha establecido conexion de Mensajeria en el Puerto : "  + socketServidorMensajeria.getPort());
+				
+				
+				
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	public static int getPuertomensajes() {
+		return puertoMensajes;
+	}
+	public static int getPuertodatos() {
+		return puertoDatos;
+	}
+	public static String getIp() {
+		return ip;
+	}
+	
+
+}

@@ -1,0 +1,52 @@
+package edu.ucam.gui.windows;
+
+import java.awt.Color;
+import java.awt.GridBagLayout;
+import java.awt.Menu;
+
+
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+
+public class VentanaMain extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	JPanel panel;
+	JMenuBar menuSuperior;
+	
+	public VentanaMain() {
+		setSize(600, 600);
+		setTitle("Taller");
+		setLocationRelativeTo(null);
+		colocarPanel();
+	}
+	
+	
+	
+	private void colocarPanel() {
+		panel = new JPanel();
+		this.add(panel);
+		panel.setLayout(null);
+	}
+	
+	private void colocarMenuSuperior() {
+		menuSuperior = new JMenuBar();
+		menuSuperior.setBounds(0, 0, 40, 600);
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	///Borrar esto una vez Completo
+	public static void main(String[] args) {
+		VentanaMain v1 = new VentanaMain();
+		v1.setVisible(true);
+	}
+
+}

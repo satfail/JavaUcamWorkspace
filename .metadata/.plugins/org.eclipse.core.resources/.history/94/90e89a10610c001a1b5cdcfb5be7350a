@@ -1,0 +1,9 @@
+package edu.ucam.application;
+
+public class Servidor {
+	
+	static final int puertoMensajes = 2019;
+	static final int puertoDatos = 2020;
+	
+
+}

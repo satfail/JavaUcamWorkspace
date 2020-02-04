@@ -1,0 +1,39 @@
+package Chat;
+
+import java.io.*;
+import java.net.*;
+
+
+public class ClienteThread extends Thread{
+	
+	private Socket socket;
+	private ServerMultiClient servermulticlient;
+	public ClienteThread (Socket socket, ServerMultiClient servermulticlient) {
+		this.socket = socket;
+		this.servermulticlient = servermulticlient;
+	}
+	
+	public void run() {
+		
+		BufferedReader br = null;
+		PrintWriter pw = null;
+		
+		try {
+			
+			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+			
+			
+			while (true) {
+				
+				
+			}
+		}
+		
+		catch(Exception ex) {
+			
+			ex.printStackTrace();
+		
+	}
+
+}
